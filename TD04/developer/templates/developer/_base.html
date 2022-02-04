@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+
+{% block title %}MProject - Gestion des developpeurs{% endblock title %}
+{% block bigtitle %}MProject{% endblock bigtitle %}
+{% block titledescr %}Gestion des developpeurs{% endblock titledescr %}
+
+{% block menu-script %}
+    $("#nav-home").removeClass('active')
+    $("#nav-dev").addClass('active')
+    $("#nav-task").removeClass('active')
+{% endblock menu-script %}

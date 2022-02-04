@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_todo_task">
+        <field name="res_model">todo.task</field>
+        <field name="view_mode">tree,form</field>
+        <field name="name">Liste des tâches</field>
+    </record>
+
+    <menuitem id="menu_todo_task" name="Gestion des tâches"/>
+    <menuitem id="todo_task_menu" name="Tâches" parent="menu_todo_task"/>
+    <menuitem id="task_menu" name="Sous-tâche" parent="todo_task_menu" action="action_todo_task"/>
+
+    <menuitem id="configuration_menu" name="Configuration" parent="menu_todo_task"/>
+    <record model="ir.actions.act_window" id="contact_list_action">
+        <field name="name">Contacts</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="contact_menu" name="Contacts" parent="configuration_menu" action="contact_list_action"/>
+</odoo>

@@ -1,0 +1,34 @@
+{% load crispy_forms_tags %}
+{% if perms.task.task_management %}
+    <div class="text-center">
+        <button type="button" class="btn btn-primary w-50" data-toggle="modal" data-target="#add-task-modal">Ajouter une
+            tâche
+        </button>
+    </div>
+    <!-- Ajout du modal contenant le formulaire -->
+    <div class="modal fade" id="add-task-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Nouvelle tâche</h4>
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-add-task" action="{% url 'task:create' %}" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div>
+                            <button class="btn btn-primary" type="submit">Créer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#form-add-task').on('submit', () => {
+            $("#id_assignee").removeAttr('disabled')
+        });
+    </script>
+{% endif %}

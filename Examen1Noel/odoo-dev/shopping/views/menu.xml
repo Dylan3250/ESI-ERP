@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_gift">
+        <field name="res_model">gift</field>
+        <field name="view_mode">tree,form</field>
+        <field name="name">Liste des cadeaux</field>
+    </record>
+
+    <menuitem id="menu_gift" name="Gifts" parent="todo_app.menu_todo_task" action="action_gift"/>
+</odoo>

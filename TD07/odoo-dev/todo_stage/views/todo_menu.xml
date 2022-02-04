@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_todo_tag">
+        <field name="res_model">todo.task.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="name">Tags des tâches</field>
+    </record>
+
+    <menuitem id="menu_todo_task_tag" name="Tags" parent="todo_app.configuration_menu" action="action_todo_tag"/>
+</odoo>

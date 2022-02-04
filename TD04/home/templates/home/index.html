@@ -1,0 +1,29 @@
+{% extends "home/_base.html" %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="p-1 m-3 bg-light">
+            <h1>
+                {{ user.first_name }} {{ user.last_name }}
+            </h1>
+        </div>
+        <div class="container-sm">
+            {% if user.tasks.all|length %}
+                <ul class="list-group fluid">
+                    {% for task in user.tasks.all %}
+                        <li class="list-group-item">
+                            <strong>{{ task.title }}</strong>
+                            {{ task.description }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="alert alert-warning">Aucune tâche n'est définie.</div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="container-sm p-3 mt-2 bg-light text-primary">
+            <h1>Bienvenue sur le site inconnu !</h1>
+            <a href={% url 'login' %}>Se connecter</a>
+        </div>
+    {% endif %}
+{% endblock content %}

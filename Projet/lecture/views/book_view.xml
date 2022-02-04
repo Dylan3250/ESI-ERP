@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Form when creating a book -->
+    <record id="view_form_book_lecture" model="ir.ui.view">
+        <field name="name">Formulaire d'un livre</field>
+        <field name="model">lecture.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="current_user_liked" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" id="like_button"
+                                attrs="{'invisible': [('current_user_liked', '=', False)] }"
+                                type="object" icon="fa-thumbs-up"
+                                name="like_book"
+                                help="Likes for the book">
+                            <field string="Likes" name="like_number" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" id="like_button"
+                                attrs="{'invisible': [('current_user_liked', '=', True)] }"
+                                type="object" icon="fa-thumbs-o-up"
+                                name="like_book"
+                                help="Likes for this book">
+                            <field string="Likes" name="like_number" widget="statinfo"/>
+                        </button>
+                    </div>
+
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field string="Titre" name="name"/>
+                            <field string="Auteurs" name="author_ids" widget="many2many_tags"/>
+                            <field string="Nombre de pages" name="nbPage"/>
+                        </group>
+                        <group name="group_right">
+                            <field string="Date de publication" name="date" widget="date"/>
+                            <field string="Couverture" name="picture" widget="image" class="oe_avatar"/>
+                        </group>
+                        <group name="group_bottom">
+                            <field string="Description" name="description" widget="text_html"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Displays of the list of books on the module home page -->
+    <record id="view_tree_lecture_book" model="ir.ui.view">
+        <field name="name">Liste des livres</field>
+        <field name="model">lecture.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field string="Titre" name="name"/>
+                <field string="Date de publication" name="date" widget="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Searches in the list with filters -->
+    <record id="view_filter_lecture_book" model="ir.ui.view">
+        <field name="name">Filtre des livres</field>
+        <field name="model">lecture.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="author_ids"/>
+                <filter string="Sans auteurs" name="filter_without_authors" domain="[('author_ids','=',None)]"/>
+            </search>
+        </field>
+    </record>
+</odoo>

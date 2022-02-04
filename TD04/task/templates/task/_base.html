@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+
+{% block title %}GProject - Gestion des tâches{% endblock title %}
+{% block bigtitle %}GProject{% endblock bigtitle %}
+{% block titledescr %}Gestion des tâches{% endblock titledescr %}
+
+{% block menu-script %}
+    $("#nav-home").removeClass('active')
+    $("#nav-dev").removeClass('active')
+    $("#nav-task").addClass('active')
+{% endblock menu-script %}

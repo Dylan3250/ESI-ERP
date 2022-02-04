@@ -1,0 +1,110 @@
+<odoo>
+    <data noupdate="1">
+        <record model="res.partner" id="author1">
+            <field name="name">J.K. Rowling</field>
+        </record>
+        <record model="res.partner" id="author2">
+            <field name="name">Frank Herbert</field>
+        </record>
+        <record model="res.partner" id="author3">
+            <field name="name">Donald E. Knuth</field>
+        </record>
+
+        <record model="lecture.book" id="book1">
+            <field name="name">Harry Potter, I : Harry Potter à l'école des sorciers</field>
+            <field name="picture" type="base64" file="lecture/static/pictures/harryPotter1.jpg"/>
+            <field name="date">2009-08-08</field>
+            <field name="nbPage">111</field>
+            <field name="author_ids" eval="[(4, ref('author1'), None)]"/>
+            <field name="description"><![CDATA[
+                <h2>Quatrième de couverture</h2>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim, urna vitae interdum porttitor, risus quam pellentesque risus, scelerisque venenatis quam nunc id risus. Pellentesque consequat est vel sapien molestie dictum. Pellentesque metus turpis, tristique pellentesque justo at, placerat tincidunt nisl. Maecenas eu nibh at sapien ornare dictum non sed arcu. Fusce vel metus dignissim, bibendum augue id, tempor nisi. Donec dignissim mollis lacus eu bibendum. Mauris molestie metus odio, eu ultricies quam tincidunt sit amet. Sed laoreet, mi vitae gravida posuere, tellus urna consectetur lacus, eget bibendum leo velit vel ipsum. Mauris vitae arcu semper, convallis mi vitae, tincidunt felis. Pellentesque malesuada nec tortor id sagittis. Fusce laoreet quam et nisi interdum auctor. In in posuere dolor, in feugiat turpis. Quisque lacus nulla, interdum in erat commodo, varius aliquet turpis. Cras condimentum, felis vel ornare imperdiet, augue risus pharetra quam, sit amet accumsan enim eros quis velit. Mauris sed malesuada tortor, a consectetur ex.
+            ]]>
+            </field>
+        </record>
+
+        <record model="lecture.book" id="book2">
+            <field name="name">Harry Potter et la chambre des secrets</field>
+            <field name="picture" type="base64" file="lecture/static/pictures/harryPotter2.jpg"/>
+            <field name="date">2011-07-27</field>
+            <field name="nbPage">891</field>
+            <field name="author_ids" eval="[(4, ref('author1'), None)]"/>
+            <field name="description"><![CDATA[
+                <h2>Quatrième de couverture</h2>
+                <br>
+                Suspendisse vitae rutrum nunc. Vivamus sit amet justo vitae metus condimentum suscipit vel ac felis. Vivamus vel tortor sodales, rutrum leo sit amet, congue neque. Aliquam nec orci molestie, maximus urna ut, blandit magna. Donec varius vel nibh at congue. Donec quis tellus interdum, aliquet purus in, porttitor mauris. Mauris tincidunt dapibus metus vitae iaculis. Ut sodales rhoncus turpis at convallis. Nam bibendum luctus risus vitae feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            ]]>
+            </field>
+        </record>
+
+        <record model="lecture.book" id="book3">
+            <field name="name">Harry Potter, III : Harry Potter et le prisonnier d'Azkaban</field>
+            <field name="picture" type="base64" file="lecture/static/pictures/harryPotter3.jpg"/>
+            <field name="date">2018-11-07</field>
+            <field name="nbPage">768</field>
+            <field name="author_ids" eval="[(4, ref('author1'), None)]"/>
+            <field name="description"><![CDATA[
+                <h2>Quatrième de couverture</h2>
+                <br>
+                Interdum et malesuada fames ac ante ipsum primis in faucibus. In erat elit, ultricies ac purus sit amet, convallis aliquam nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent dignissim tincidunt lorem, at placerat leo imperdiet quis. Nulla at lorem elit. Proin posuere nibh et ullamcorper lacinia. Curabitur mollis, arcu vel dignissim auctor, lorem ligula fermentum libero, eget eleifend velit tortor sollicitudin lorem. In iaculis risus nec cursus tincidunt. Duis lobortis dolor diam, ac eleifend diam dapibus at. Mauris sed pretium ligula. Aenean at tortor luctus, sollicitudin lorem vel, gravida leo.
+            ]]>
+            </field>
+        </record>
+
+        <record model="lecture.book" id="book4">
+            <field name="name">Dune - Tome 1</field>
+            <field name="picture" type="base64" file="lecture/static/pictures/dune1.jpg"/>
+            <field name="date">2019-11-03</field>
+            <field name="nbPage">315</field>
+            <field name="author_ids" eval="[(4, ref('author2'), None)]"/>
+            <field name="description"><![CDATA[
+                <h2>Biographie de l'auteur</h2>
+                <br>
+                Praesent dignissim eros vel scelerisque consequat. Duis sed tempor lacus, sed ultricies orci. Etiam placerat est quis vestibulum scelerisque. Ut ut interdum arcu, sed bibendum mauris. Duis eleifend urna enim, at consectetur arcu gravida ac. Nulla id justo ligula. Donec vitae est ornare, iaculis mauris eget, tempor ante. Pellentesque nec congue tellus. Aenean vel dapibus justo. Sed enim elit, malesuada non eros a, bibendum imperdiet libero. Vivamus pharetra, tortor et porta rutrum, dui ex dapibus magna, quis scelerisque diam risus vitae nisl. Pellentesque at rhoncus tortor, vitae euismod velit. Morbi mattis orci lectus, id egestas dui elementum vel. Phasellus eget lorem id erat tincidunt tempus eget eu augue. Nunc tristique vel lorem non interdum. Aliquam erat volutpat.
+                ]]>
+            </field>
+        </record>
+
+        <record id="res_partner_univ" model="res.partner">
+            <field name="name">Presses Universitaires de Bruxelles</field>
+            <field name="street">Av. Paul Héger 42</field>
+            <field name="zip">1000</field>
+            <field name="email">librairie@pub-ulb.be</field>
+            <field name="city">Bruxelles</field>
+            <field name="phone">02 650 64 40</field>
+            <field name="website">www.pub-ulb.be</field>
+        </record>
+
+        <record id="collection" model="product.product">
+            <field name="available_in_pos">True</field>
+            <field name="type">product</field>
+            <field name="name">Coffret Potter</field>
+            <field name="books_collection"
+                   eval="[(4, ref('book1'), None), (4, ref('book2'), None), (4, ref('book3'), None)]"/>
+            <field name="image_1920" type="base64" file="lecture/static/pictures/harryPotterCollection.jpg"/>
+        </record>
+
+        <record id="stock_book" model="stock.inventory">
+            <field name="name">Starting Inventory</field>
+        </record>
+
+        <record id="stock_inventory_line_1" model="stock.inventory.line">
+            <field name="product_id" ref="collection"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_book"/>
+            <field name="product_qty">90.0</field>
+            <field name="location_id" model="stock.location" eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <function model="stock.inventory" name="action_validate">
+            <function eval="[[('state','=','confirm'),('id', '=', ref('stock_book'))]]"
+                      model="stock.inventory" name="search"/>
+        </function>
+
+        <function model="stock.inventory" name="_action_start">
+            <function eval="[[('state','=','draft'),('id', '=', ref('stock_book'))]]"
+                      model="stock.inventory" name="search"/>
+        </function>
+    </data>
+</odoo>

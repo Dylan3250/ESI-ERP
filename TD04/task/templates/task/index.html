@@ -1,0 +1,38 @@
+{% extends "task/_base.html" %}
+{% block title %} Liste des tâches {% endblock title %}
+{% block content %}
+    {% if tasks %}
+        <div class="container-sm l-3 mb-3 d-flex flex-wrap border">
+            {% for task in tasks %}
+                <div class="card bg-info m-2 p-1 rounded-lg" style="width:300px">
+                    <div class="card-title">
+                        <li class="list-group-item">
+                            {{ task.title }}
+                            <form action="{% url 'task:delete' task.id %}" method="post">
+                                {% csrf_token %}
+                                <button class="close" type="submit"><i class="fa fa-trash"></i></button>
+                            </form>
+                            <br>
+                        </li>
+                    </div>
+                    <div class="card-body">
+                        {{ task.description }}
+                    </div>
+                    <div class="card-footer">
+                        {% if task.assignee == None %}
+                            Non assignée
+                        {% else %}
+                            {{ task.assignee }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <br>
+        <div class="container-sm">
+            <div class="alert alert-warning">Il n'y a aucune tâche enregistrée</div>
+        </div>
+    {% endif %}
+    {% include 'task/_create_task_modal.html' %}
+{% endblock content %}
